@@ -20,7 +20,7 @@ const Contact = () => {
             <FaFacebookMessenger className="contact-icons" />
             <h4>Messenger</h4>
             <h5>Anmol Thapa</h5>
-            <a href="https://m.me/boyanmol" target="_blank">
+            <a href="https://m.me/boyanmol" target="_blank" rel="noreferrer">
               Send Message
             </a>
           </article>
@@ -28,7 +28,11 @@ const Contact = () => {
             <FaLinkedin className="contact-icons" />
             <h4>LinkedIn</h4>
             <h5>Anmol Thapa</h5>
-            <a href="https://www.linkedin.com/in/anmol-thapa/" target="_blank">
+            <a
+              href="https://www.linkedin.com/in/anmol-thapa/"
+              target="_blank"
+              rel="noreferrer"
+            >
               Send Message
             </a>
           </article>
