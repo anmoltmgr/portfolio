@@ -1,8 +1,34 @@
-import React from 'react';
+import React, { useRef } from 'react';
+import emailjs from 'emailjs-com';
+
 import './Contact.css';
+
 import { MdOutlineEmail } from 'react-icons/md';
 import { FaFacebookMessenger, FaLinkedin } from 'react-icons/fa';
+
 const Contact = () => {
+  const form = useRef();
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs
+      .sendForm(
+        'service_8jwgl9t',
+        'template_ovr2ame',
+        form.current,
+        'pHz3XPyG3e9_rLa9-'
+      )
+      .then(
+        (result) => {
+          console.log(result.text);
+        },
+        (error) => {
+          console.log(error.text);
+        }
+      );
+    e.target.reset();
+  };
   return (
     <section id="contact">
       <h5>Get In Touch</h5>
@@ -28,17 +54,13 @@ const Contact = () => {
             <FaLinkedin className="contact-icons" />
             <h4>LinkedIn</h4>
             <h5>Anmol Thapa</h5>
-            <a
-              href="https://www.linkedin.com/in/anmol-thapa/"
-              target="_blank"
-              rel="noreferrer"
-            >
+            <a href="https://linkedin.com/in/anmol-thapa/" target="_blank">
               Send Message
             </a>
           </article>
         </div>
         {/* END OF CONTACT OPTIONS */}
-        <form action="">
+        <form ref={form} onSubmit={sendEmail}>
           <input type="text" name="name" placeholder="Full Name" required />
           <input type="email" name="email" placeholder="Your E-mail" required />
           <textarea
